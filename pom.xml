@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <github.global.server>github</github.global.server>
-        <netty.version>4.0.44.Final</netty.version>
+        <netty.version>4.1.25.Final</netty.version>
         <slf4j.version>1.7.32</slf4j.version>
         <java.version>1.8</java.version>
     </properties>
@@ -190,14 +190,14 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>2.7.12</version>
+            <version>3.6.0</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.mock-server</groupId>
             <artifactId>mockserver-netty</artifactId>
-            <version>3.10.4</version>
+            <version>5.11.2</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -210,7 +210,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>2.53.1</version>
+            <version>3.141.59</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -237,6 +237,11 @@
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-example</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -383,6 +388,13 @@
                 <version>${netty.version}</version>
             </dependency>
 
+            <dependency>
+                <!--Override transitive dependency of org.mock-server:mockserver-netty-->
+                <!--Provides patches for several CVE issues-->
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>2.11.3</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
